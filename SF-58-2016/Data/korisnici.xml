@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKorisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Korisnik>
+    <Id>1</Id>
+    <Obrisan>false</Obrisan>
+    <Korisnicko_Ime>a</Korisnicko_Ime>
+    <Lozinka>a</Lozinka>
+    <Ime>a</Ime>
+    <Prezime>a</Prezime>
+    <TipKorisnika>Administrator</TipKorisnika>
+  </Korisnik>
+  <Korisnik>
+    <Id>0</Id>
+    <Obrisan>false</Obrisan>
+    <Korisnicko_Ime>b</Korisnicko_Ime>
+    <Lozinka>b</Lozinka>
+    <Ime>b</Ime>
+    <Prezime>b</Prezime>
+    <TipKorisnika>Prodavac</TipKorisnika>
+  </Korisnik>
+</ArrayOfKorisnik>

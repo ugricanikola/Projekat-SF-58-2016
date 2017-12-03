@@ -1,0 +1,19 @@
+﻿<Window x:Class="SF_58_2016.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_58_2016"
+        mc:Ignorable="d"
+        Title="LOGIN - Salon namestaja" Height="350" Width="525" Background="#000a98" ResizeMode="NoResize">
+    <Grid HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="515">
+        <Label Content="Login" HorizontalAlignment="Left" Height="64" Margin="180,14,0,0" VerticalAlignment="Top" Width="157" FontSize="40" HorizontalContentAlignment="Center" Foreground="White"/>
+        <Label Content="Username:" HorizontalAlignment="Left" Height="39" Margin="109,127,0,-78" VerticalAlignment="Top" Width="112" FontSize="20" HorizontalContentAlignment="Center" Foreground="White"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Height="39" Margin="117,166,0,-117" VerticalAlignment="Top" Width="104" FontSize="20" HorizontalContentAlignment="Center" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="221,136,0,-73" TextWrapping="Wrap" VerticalAlignment="Center" Width="182" TextAlignment="Justify" Name="tbUsername"/>
+        <PasswordBox HorizontalAlignment="Left" Height="25" Margin="221,171,0,-108" VerticalAlignment="Top" Width="182" Name="pbPassword"/>
+        <Button x:Name="btLogin" Content="Log In" HorizontalAlignment="Left" Height="29" Margin="117,264,0,-205" VerticalAlignment="Top" Width="77" Click="Login" IsDefault="True" Background="#FF00CF1C"/>
+        <Button x:Name="btExit" Content="Exit" HorizontalAlignment="Left" Height="29" Margin="326,264,0,-205" VerticalAlignment="Top" Width="77" Click="Exit" Background="#FFCB0000" BorderBrush="#FF5D5D5D"/>
+
+    </Grid>
+</Window>
