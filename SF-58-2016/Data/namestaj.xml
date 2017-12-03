@@ -63,4 +63,13 @@
     <Naziv>kauc</Naziv>
     <Id>7</Id>
   </Namestaj>
+  <Namestaj>
+    <Kolicina>2</Kolicina>
+    <Sifra>2</Sifra>
+    <Obrisan>true</Obrisan>
+    <TipNamestajaId>2</TipNamestajaId>
+    <Cena>3</Cena>
+    <Naziv>a</Naziv>
+    <Id>8</Id>
+  </Namestaj>
 </ArrayOfNamestaj>

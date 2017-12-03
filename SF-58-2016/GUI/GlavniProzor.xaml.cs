@@ -26,8 +26,9 @@ namespace SF_58_2016.GUI
         public static string TrenutnoAktivno;
         public GlavniProzor()
         {
-            ProveriPrijavljenogKorisnika();
             InitializeComponent();
+            ProveriPrijavljenogKorisnika();
+            
         }
 
         private void ProveriPrijavljenogKorisnika()
@@ -53,6 +54,10 @@ namespace SF_58_2016.GUI
         public bool NamestajIspis(object obj)
         {
             return ((Namestaj)obj).Obrisan == false;
+        }
+        public bool KorisniciIspis(object obj)
+        {
+            return ((Korisnik)obj).Obrisan == false;
         }
 
         private void dgTabela_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -82,6 +87,23 @@ namespace SF_58_2016.GUI
                     NamestajDodavanjeIzmena namestajDI = new NamestajDodavanjeIzmena(noviNamestaj, NamestajDodavanjeIzmena.Operacija.DODAVANJE);
                     namestajDI.ShowDialog();
                     break;
+                case "TipoviNamestaja":
+                    TipNamestaja noviTip = new TipNamestaja();
+                    TipNamestajaDodavanjeIzmena tipNamestajaDI = new TipNamestajaDodavanjeIzmena(noviTip, TipNamestajaDodavanjeIzmena.Operacija.DODAVANJE);
+                    tipNamestajaDI.ShowDialog();
+                    break;
+                case "DodatneUsluge":
+                    DodatnaUsluga novaDodatnaUsluga = new DodatnaUsluga();
+                    DodatneUslugeDodavanjeIzmena dodatneUslugeDI = new DodatneUslugeDodavanjeIzmena(novaDodatnaUsluga, DodatneUslugeDodavanjeIzmena.Operacija.DODAVANJE);
+                    dodatneUslugeDI.ShowDialog();
+                    break;
+                case "Korisnici":
+                    Korisnik noviKorisnik = new Korisnik();
+                    KorisnikDodavanjeIzmena korisnikDI = new KorisnikDodavanjeIzmena(noviKorisnik, KorisnikDodavanjeIzmena.Operacija.DODAVANJE);
+                    korisnikDI.ShowDialog();
+                    break;
+
+            
             }
         }
 
@@ -99,6 +121,37 @@ namespace SF_58_2016.GUI
                         Projekat.Instance.Namestaj[index] = namestajKopija;
                     }
                     break;
+                case "TipoviNamestaja":
+                    TipNamestaja tipIzmena = dgTabela.SelectedItem as TipNamestaja;
+                    TipNamestaja tipKopija = (TipNamestaja)tipIzmena.Clone();
+                    TipNamestajaDodavanjeIzmena tipNamestajaDI = new TipNamestajaDodavanjeIzmena(tipIzmena, TipNamestajaDodavanjeIzmena.Operacija.IZMENA);
+                    if(tipNamestajaDI.ShowDialog() != true)
+                    {
+                        int index = Projekat.Instance.TipNamestaja.IndexOf(tipIzmena);
+                        Projekat.Instance.TipNamestaja[index] = tipKopija;
+                    }
+                    break;
+                case "DodatneUsluge":
+                    DodatnaUsluga uslugaIzmena = dgTabela.SelectedItem as DodatnaUsluga;
+                    DodatnaUsluga uslugaKopija = (DodatnaUsluga)uslugaIzmena.Clone();
+                    DodatneUslugeDodavanjeIzmena dodatneUslugeDI = new DodatneUslugeDodavanjeIzmena(uslugaIzmena, DodatneUslugeDodavanjeIzmena.Operacija.IZMENA);
+                    if(dodatneUslugeDI.ShowDialog() != true)
+                    {
+                        int index = Projekat.Instance.DodatneUsluge.IndexOf(uslugaIzmena);
+                        Projekat.Instance.DodatneUsluge[index] = uslugaKopija;
+                    }
+                    break;
+                case "Korisnici":
+                    Korisnik korisnikIzmena = dgTabela.SelectedItem as Korisnik;
+                    Korisnik korisnikKopija = (Korisnik)korisnikIzmena.Clone();
+                    KorisnikDodavanjeIzmena korisnikDI = new KorisnikDodavanjeIzmena(korisnikIzmena, KorisnikDodavanjeIzmena.Operacija.IZMENA);
+                    if(korisnikDI.ShowDialog() != true)
+                    {
+                        int index = Projekat.Instance.Korisnici.IndexOf(korisnikIzmena);
+                        Projekat.Instance.Korisnici[index] = korisnikKopija;
+                    }
+                    break;
+
             }
         }
 
@@ -107,14 +160,42 @@ namespace SF_58_2016.GUI
             switch (TrenutnoAktivno)
             {
                 case "Namestaj":
-                    var list = Projekat.Instance.Namestaj;
+                    var listNamestaj = Projekat.Instance.Namestaj;
                     Namestaj namestajIzbrisi = dgTabela.SelectedItem as Namestaj;
                     if (MessageBox.Show("Obrisati?", "Potvrda", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
                     {
                         namestajIzbrisi.Obrisan = true;
-                        GenericSerializer.Serialize("namestaj.xml", list);
+                        GenericSerializer.Serialize("namestaj.xml", listNamestaj);
                     }
                     break;
+                case "TipoviNamestaja":
+                    var listTipNamestaja = Projekat.Instance.TipNamestaja;
+                    TipNamestaja tipNamestajaIzbrisi = dgTabela.SelectedItem as TipNamestaja;
+                    if (MessageBox.Show("Obrisati?", "Potvrda", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    {
+                        tipNamestajaIzbrisi.Obrisan = true;
+                        GenericSerializer.Serialize("tip_namestaja.xml", listTipNamestaja);
+                    }
+                    break;
+                case "DodatneUsluge":
+                    var listDodatneUsluge = Projekat.Instance.DodatneUsluge;
+                    DodatnaUsluga dodatneUslugeIzbrisi = dgTabela.SelectedItem as DodatnaUsluga;
+                    if (MessageBox.Show("Obrisati?", "Potvrda", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    {
+                        dodatneUslugeIzbrisi.Obrisan = true;
+                        GenericSerializer.Serialize("dodatne_usluge.xml", listDodatneUsluge);
+                    }
+                    break;
+                case "Korisnici":
+                    var listKorisnici = Projekat.Instance.Korisnici;
+                    var korisnikIzbrisi = dgTabela.SelectedItem as Korisnik;
+                    if (MessageBox.Show("Obrisati?", "Potvrda", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    {
+                        korisnikIzbrisi.Obrisan = true;
+                        GenericSerializer.Serialize("korisnici.xml", listKorisnici);
+                    }
+                    break;
+
             }
         }
 
@@ -123,7 +204,7 @@ namespace SF_58_2016.GUI
             TrenutnoAktivno = "DodatneUsluge";
             dgTabela.ItemsSource = Projekat.Instance.DodatneUsluge;
         }
-
+ 
         private void TipNamestajaM(object sender, RoutedEventArgs e)
         {
             TrenutnoAktivno = "TipoviNamestaja";
@@ -143,7 +224,7 @@ namespace SF_58_2016.GUI
         }
 
         private void KorisniciM(object sender, RoutedEventArgs e)
-        {
+        {       
             TrenutnoAktivno = "Korisnici";
             dgTabela.ItemsSource = Projekat.Instance.Korisnici;
         }

@@ -18,4 +18,11 @@
     <Prezime>b</Prezime>
     <TipKorisnika>Prodavac</TipKorisnika>
   </Korisnik>
+  <Korisnik>
+    <Id>3</Id>
+    <Obrisan>true</Obrisan>
+    <Korisnicko_Ime>kor1</Korisnicko_Ime>
+    <Lozinka>kor123</Lozinka>
+    <TipKorisnika>Prodavac</TipKorisnika>
+  </Korisnik>
 </ArrayOfKorisnik>
