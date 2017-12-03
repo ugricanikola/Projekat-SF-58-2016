@@ -16,7 +16,7 @@
         <Button Content="Logout" Name="btnLogout" HorizontalAlignment="Left" Margin="732,0,0,0" VerticalAlignment="Top" Width="110" Height="34" FontWeight="Bold" Background="#bfbfbf" BorderBrush="#bfbfbf" Click="logout"/>
         <Grid HorizontalAlignment="Left" Height="2" Margin="0,34,0,0" VerticalAlignment="Top" Width="842" Background="White" />
         <Grid HorizontalAlignment="Left" Height="36" Margin="208,254,0,-254" VerticalAlignment="Top" Width="100"/>
-        <Grid HorizontalAlignment="Left" Height="436" Margin="0,41,0,-441" VerticalAlignment="Top" Width="842">
+        <Grid HorizontalAlignment="Left" Height="436" Margin="0,41,0,-441" VerticalAlignment="Top" Width="843">
             <DataGrid Name="dgTabela" HorizontalAlignment="Left" Height="377" VerticalAlignment="Top" Width="842" Background="#302088" AlternatingRowBackground="Red" ColumnWidth="*" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" AutoGeneratingColumn="dgTabela_AutoGeneratingColumn"/>
             <Button Content="Dodaj" Name="btnDodaj" FontWeight="Bold" Background="GreenYellow" BorderBrush="#bfbfbf" HorizontalAlignment="Left" Margin="10,392,0,0" VerticalAlignment="Top" Width="85" Height="34" Click="Dodavanje"/>
             <Button Content="Izbrisi" x:Name="btnIzbrisi" FontWeight="Bold" Background="Red" BorderBrush="#bfbfbf" HorizontalAlignment="Left" Margin="190,392,0,0" VerticalAlignment="Top" Width="85" Height="34" Click="Izbrisi"/>
