@@ -53,6 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\AkcijaDodavanjeIzmena.xaml.cs">
+      <DependentUpon>AkcijaDodavanjeIzmena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DodatneUslugeDodavanjeIzmena.xaml.cs">
       <DependentUpon>DodatneUslugeDodavanjeIzmena.xaml</DependentUpon>
     </Compile>
@@ -65,12 +68,22 @@
     <Compile Include="GUI\NamestajDodavanjeIzmena.xaml.cs">
       <DependentUpon>NamestajDodavanjeIzmena.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProdajaProzor.xaml.cs">
+      <DependentUpon>ProdajaProzor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StavkeProzor.xaml.cs">
+      <DependentUpon>StavkeProzor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\TipNamestajaDodavanjeIzmena.xaml.cs">
       <DependentUpon>TipNamestajaDodavanjeIzmena.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ProdajaNamestaja.cs" />
     <Compile Include="Model\StavkaProdaje.cs" />
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Page Include="GUI\AkcijaDodavanjeIzmena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\DodatneUslugeDodavanjeIzmena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +97,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\NamestajDodavanjeIzmena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ProdajaProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\StavkeProzor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

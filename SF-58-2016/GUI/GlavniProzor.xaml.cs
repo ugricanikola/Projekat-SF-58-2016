@@ -102,6 +102,16 @@ namespace SF_58_2016.GUI
                     KorisnikDodavanjeIzmena korisnikDI = new KorisnikDodavanjeIzmena(noviKorisnik, KorisnikDodavanjeIzmena.Operacija.DODAVANJE);
                     korisnikDI.ShowDialog();
                     break;
+                case "Akcije":
+                    Akcija novaAkcija = new Akcija();
+                    AkcijaDodavanjeIzmena akcijaDI = new AkcijaDodavanjeIzmena(novaAkcija, AkcijaDodavanjeIzmena.Operacija.DODAVANJE);
+                    akcijaDI.ShowDialog();
+                    break;
+                case "Prodaja":
+                    ProdajaNamestaja novaProdaja = new ProdajaNamestaja();
+                    ProdajaProzor pp = new ProdajaProzor(novaProdaja, ProdajaProzor.Operacija.DODAVANJE);
+                    pp.ShowDialog();
+                    break;
 
             
             }
@@ -151,6 +161,26 @@ namespace SF_58_2016.GUI
                         Projekat.Instance.Korisnici[index] = korisnikKopija;
                     }
                     break;
+                case "Akcija":
+                    Akcija akcijaIzmena = dgTabela.SelectedItem as Akcija;
+                    Akcija akcijaKopija = (Akcija)akcijaIzmena.Clone();
+                    AkcijaDodavanjeIzmena akcijaDI = new AkcijaDodavanjeIzmena(akcijaIzmena, AkcijaDodavanjeIzmena.Operacija.IZMENA);
+                    if(akcijaDI.ShowDialog() != true)
+                    {
+                        int index = Projekat.Instance.Akcije.IndexOf(akcijaIzmena);
+                        Projekat.Instance.Akcije[index] = akcijaKopija;
+                    }
+                    break;
+                case "Prodaja":
+                    ProdajaNamestaja prodaja = dgTabela.SelectedItem as ProdajaNamestaja;
+                    ProdajaNamestaja prodajaKopija = (ProdajaNamestaja)prodaja.Clone();
+                    ProdajaProzor pp = new ProdajaProzor(prodaja, ProdajaProzor.Operacija.IZMENA);
+                    if(pp.ShowDialog() != true)
+                    {
+                        int index = Projekat.Instance.Prodaja.IndexOf(prodaja);
+                        Projekat.Instance.Prodaja[index] = prodajaKopija;
+                    }
+                    break;
 
             }
         }
@@ -193,6 +223,24 @@ namespace SF_58_2016.GUI
                     {
                         korisnikIzbrisi.Obrisan = true;
                         GenericSerializer.Serialize("korisnici.xml", listKorisnici);
+                    }
+                    break;
+                case "Akcija":
+                    var listAkcija = Projekat.Instance.Akcije;
+                    var akcijaIzbrisi = dgTabela.SelectedItem as Akcija;
+                    if (MessageBox.Show("Obrisati?", "Potvrda", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    {
+                        akcijaIzbrisi.Obrisan = true;
+                        GenericSerializer.Serialize("akcije.xml", listAkcija);
+                    }
+                    break;
+                case "Prodaja":
+                    var listProdaja = Projekat.Instance.Prodaja;
+                    ProdajaNamestaja prodajaIzbrisi = dgTabela.SelectedItem as ProdajaNamestaja;
+                    if (MessageBox.Show("Obrisati?", "Potvrda", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    {
+                        prodajaIzbrisi.Obrisan = true;
+                        GenericSerializer.Serialize("prodaja_namestaja.xml", listProdaja);
                     }
                     break;
 
